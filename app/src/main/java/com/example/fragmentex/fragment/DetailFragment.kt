@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.fragmentex.MainActivity
+import com.example.fragmentex.R
 import com.example.fragmentex.databinding.FragmentDetailBinding
 
 class DetailFragment : Fragment() {
@@ -23,6 +24,7 @@ class DetailFragment : Fragment() {
         try {
             binding = FragmentDetailBinding.inflate(inflater,container,false)
             binding.detailFragment = this
+            setFragment()
         } catch (e: Exception) {
             Toast.makeText(requireContext(), "${e.message}", Toast.LENGTH_SHORT).show()
             e.printStackTrace()
@@ -32,5 +34,14 @@ class DetailFragment : Fragment() {
 
     fun onGoBack() {
         mainActivity?.onBackPressed()
+    }
+
+    private fun setFragment() {
+        parentFragmentManager.beginTransaction().apply {
+            add(R.id.fragmentContainerA, FragmentA())
+            add(R.id.fragmentContainerB, FragmentB())
+            setReorderingAllowed(true)
+            commit()
+        }
     }
 }
