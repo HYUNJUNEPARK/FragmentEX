@@ -34,16 +34,4 @@ class MainActivity : AppCompatActivity() {
         transaction.add(R.id.frameLayout, listFragment)
         transaction.commit()
     }
-
-    fun goBack(){
-        onBackPressed()
-    }
-
-    fun goDetail(){
-        val detailFragment = DetailFragment()
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.frameLayout, detailFragment)
-        transaction.addToBackStack("detail")
-        transaction.commit()
-    }
 }

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.fragmentex.MainActivity
+import com.example.fragmentex.R
 import com.example.fragmentex.databinding.FragmentListBinding
 
 class ListFragment : Fragment() {
@@ -15,23 +16,37 @@ class ListFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        mainActivity = context as MainActivity
+
+        try {
+            mainActivity = context as MainActivity
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentListBinding.inflate(inflater, container, false)
+        try {
+            binding = FragmentListBinding.inflate(inflater, container, false)
+            binding.listFragment = this
 
-        binding.btnNext.setOnClickListener {
-            mainActivity?.goDetail()
+            binding.textTitle.text = arguments?.getString("key1")
+            binding.textValue.text = "${arguments?.getInt("key2")}"
+
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
-
-        binding.textTitle.text = arguments?.getString("key1")
-        binding.textValue.text = "${arguments?.getInt("key2")}"
-
         return binding.root
     }
 
     fun setValue(value:String) {
         binding.textFromActivity.text = value
+    }
+
+    fun onAddToBackStack() {
+        val detailFragment = DetailFragment()
+        val transaction = mainActivity?.supportFragmentManager!!.beginTransaction()
+        transaction.add(R.id.frameLayout, detailFragment)
+        transaction.addToBackStack("detail")
+        transaction.commit()
     }
 }
