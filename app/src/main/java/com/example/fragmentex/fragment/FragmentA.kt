@@ -15,17 +15,8 @@ class FragmentA : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View {
         binding = FragmentABinding.inflate(inflater, container, false)
+        binding.fragmentA = this
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        try {
-            binding.fragmentA = this
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
     }
 
     fun onSendBundle() {

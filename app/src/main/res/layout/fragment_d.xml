@@ -7,9 +7,6 @@
         <variable
             name="viewModel"
             type="com.example.fragmentex.FragmentViewModel" />
-        <variable
-            name="fragmentD"
-            type="com.example.fragmentex.fragment.FragmentD" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

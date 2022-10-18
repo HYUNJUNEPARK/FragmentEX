@@ -13,7 +13,7 @@ class FragmentC : Fragment() {
     private lateinit var binding : FragmentCBinding
     private val viewModel: FragmentViewModel by activityViewModels()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentCBinding.inflate(inflater, container, false)
         binding.fragmentC = this
         binding.viewModel = viewModel

@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="fragmentB"
-            type="com.example.fragmentex.fragment.FragmentB" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

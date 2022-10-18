@@ -13,9 +13,8 @@ class FragmentD : Fragment() {
     private lateinit var binding : FragmentDBinding
     private val viewModel: FragmentViewModel by activityViewModels()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentDBinding.inflate(inflater, container, false)
-        binding.fragmentD = this
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
