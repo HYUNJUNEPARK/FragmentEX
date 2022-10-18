@@ -4,17 +4,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.example.fragmentex.databinding.ActivityMainBinding
-import com.example.fragmentex.fragment.ListFragment
+import com.example.fragmentex.fragment.MainFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var listFragment: ListFragment
+    private lateinit var mainFragment: MainFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.mainActivity = this
-        listFragment = ListFragment()
+        mainFragment = MainFragment()
 
         /*
          * savedInstanceState 가 Null 일 경우에만 fragmentTransaction 을 생성
@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
             setFragment()
             sendData()
         }
-
     }
 
     /*
@@ -32,7 +31,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun setFragment() {
         supportFragmentManager.beginTransaction().apply {
-            add(R.id.fragmentContainerView, listFragment)
+            add(R.id.fragmentContainerView, mainFragment)
             setReorderingAllowed(true)
             commit()
         }
@@ -43,12 +42,12 @@ class MainActivity : AppCompatActivity() {
      */
     private fun sendData() {
         val bundle = Bundle()
-        bundle.putString("data1", "프래그먼트 생성 시 전달받은 데이터")
-        bundle.putInt("data2", 1010101)
-        listFragment.arguments = bundle
+        bundle.putString(getString(R.string.bundleKey_string), "프래그먼트 생성 시 전달받은 데이터")
+        bundle.putInt(getString(R.string.bundleKey_int), 1010101)
+        mainFragment.arguments = bundle
     }
 
     fun onSetValue() {
-        listFragment.setValue("ListFragment 가 전달받은 데이터")
+        mainFragment.setValue("ListFragment 가 전달받은 데이터")
     }
 }
