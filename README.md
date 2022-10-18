@@ -170,7 +170,12 @@ setFragmentResultListener(getString(R.string.requestKey)) { requestKey, bundle -
 
 3.4 ViewModel</br>
 ```kotlin
-
+private val viewModel: FragmentViewModel by activityViewModels()
+//..
+//LiveData Observing
+viewModel.sampleData.observe(viewLifecycleOwner) { sampleData ->
+    binding.textView.text = sampleData.toString()
+}
 ```
 
 
