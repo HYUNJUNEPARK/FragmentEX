@@ -1,17 +1,13 @@
 package com.example.fragmentex.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.Observer
 import com.example.fragmentex.databinding.FragmentDBinding
-import com.example.fragmentex.vm.FragmentViewModel
+import com.example.fragmentex.FragmentViewModel
 
 class FragmentD : Fragment() {
     private lateinit var binding : FragmentDBinding

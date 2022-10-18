@@ -1,4 +1,4 @@
-package com.example.fragmentex.vm
+package com.example.fragmentex
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

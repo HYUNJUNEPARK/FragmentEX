@@ -9,7 +9,7 @@
             type="com.example.fragmentex.fragment.FragmentC" />
         <variable
             name="viewModel"
-            type="com.example.fragmentex.vm.FragmentViewModel" />
+            type="com.example.fragmentex.FragmentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
