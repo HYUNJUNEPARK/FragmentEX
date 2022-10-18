@@ -113,10 +113,13 @@ cf. addToBackStack() 을 사용하지 않았는데 뒤로가기를 하면 액티
 
 ><a id = "content4">**4. 프래그먼트로 데이터 전달하기**</a></br>
 
-1 프래그먼트 생성 시 값 전달하기
+1 Fragment Result API
+-FragmentManager 는 프래그먼트 결과의 중앙 저장소 역할을 할 수 있음
+-경우에 따라 두 프래그먼트 간에 또는 프래그먼트와 호스트 활동 간에 일회성 값을 전달 경우
+ex) QR 코드를 읽고 이전 프래그먼트로 데이터를 다시 전달하는 프래그먼트
+-Fragment 버전 1.3.0 이상에서 각 FragmentManager는 FragmentResultOwner를 구현
+-이번 변경으로 구성요소가 서로를 직접 참조하지 않아도 프래그먼트 결과를 설정하고 이러한 결과를 수신 대기하여 구성요소가 서로 통신할 수 있음
 
-
-//TODO 
 
 
 <br></br>
@@ -133,3 +136,6 @@ https://velog.io/@changhee09/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-Fragm
 
 프래그먼트와 통신</br>
 https://developer.android.com/guide/fragments/communicate</br>
+
+Fragment 안의 Fragment 처리(교체, 백스택, Back 버튼 클릭 등) ― parentFragmentManager vs childFragmentManager</br>
+https://ddangeun.tistory.com/m/127</br>

@@ -19,4 +19,9 @@ class FragmentB : Fragment() {
         }
         return binding.root
     }
+
+    fun onGetBundle() {
+        //TODO START HERE
+        //parentFragmentManager.
+    }
 }

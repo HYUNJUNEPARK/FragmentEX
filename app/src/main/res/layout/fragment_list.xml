@@ -12,6 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="10dp"
         tools:context=".fragment.ListFragment">
 
         <TextView
@@ -21,6 +22,7 @@
             android:layout_marginTop="32dp"
             android:text="List Fragment"
             android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,47 +32,45 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="add to backstack"
-            android:textSize="24sp"
             android:onClick="@{()->listFragment.onAddToBackStack()}"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="addToBackStack"
+            android:textSize="24sp"
+            android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textFromActivity"/>
 
         <TextView
-            android:id="@+id/textTitle"
+            android:id="@+id/textValue1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@{listFragment.stringData}"
+            android:text="@{@string/value1(listFragment.stringData)}"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/textValue"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toBottomOf="@id/textView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnNext" />
+            tools:text="value1" />
 
         <TextView
-            android:id="@+id/textValue"
+            android:id="@+id/textValue2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@{listFragment.intData}"
+            android:text="@{@string/value2(listFragment.intData)}"
             android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textTitle"
-            app:layout_constraintTop_toBottomOf="@+id/btnNext" />
+            app:layout_constraintStart_toStartOf="@id/textValue1"
+            app:layout_constraintTop_toBottomOf="@id/textValue1"
+            tools:text="value2" />
 
         <TextView
             android:id="@+id/textFromActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="textFromActivity"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTitle" />
+            android:text="-"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/textValue2"
+            app:layout_constraintTop_toBottomOf="@id/textValue2"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

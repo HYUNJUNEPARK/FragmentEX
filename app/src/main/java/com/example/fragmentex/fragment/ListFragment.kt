@@ -15,7 +15,7 @@ class ListFragment : Fragment() {
     private lateinit var binding : FragmentListBinding
     private var mainActivity : MainActivity? = null
     var stringData : String? = null
-    var intData : String? = null
+    var intData : Int? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -42,7 +42,7 @@ class ListFragment : Fragment() {
     private fun getData() {
         //getData from bundle of arguments
         stringData = arguments?.getString("data1")
-        intData = arguments?.getInt("data2").toString()
+        intData = arguments?.getInt("data2")
     }
 
     fun onAddToBackStack() {

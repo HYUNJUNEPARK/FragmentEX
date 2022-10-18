@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">FragmentEx</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="value1">value1 : %s</string>
+    <string name="value2">value2 : %d</string>
+
 </resources>
