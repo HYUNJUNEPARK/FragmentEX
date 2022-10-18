@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="detailFragment"
-            type="com.example.fragmentex.fragment.DetailFragment" />
+            name="stackFragment"
+            type="com.example.fragmentex.fragment.StackFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,14 +14,14 @@
         android:layout_height="match_parent"
         android:background="#2196F3"
         android:clickable="true"
-        tools:context=".fragment.DetailFragment">
+        tools:context=".fragment.StackFragment">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Detail Fragment"
+            android:text="StackFragment"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +34,7 @@
             android:layout_marginTop="24dp"
             android:text="Back"
             android:textSize="24sp"
-            android:onClick="@{()->detailFragment.onGoBack()}"
+            android:onClick="@{()->stackFragment.onGoBack()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />

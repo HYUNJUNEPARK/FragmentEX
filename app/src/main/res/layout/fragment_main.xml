@@ -5,22 +5,22 @@
 
     <data>
         <variable
-            name="listFragment"
-            type="com.example.fragmentex.fragment.ListFragment" />
+            name="mainFragment"
+            type="com.example.fragmentex.fragment.MainFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
-        tools:context=".fragment.ListFragment">
+        tools:context=".fragment.MainFragment">
 
         <TextView
             android:id="@+id/fragmentTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="List Fragment"
+            android:text="MainFragment"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:onClick="@{()->listFragment.onAddToBackStack()}"
+            android:onClick="@{()->mainFragment.onAddToBackStack()}"
             android:text="addToBackStack"
             android:textSize="24sp"
             android:textAllCaps="false"
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@{@string/value1(listFragment.stringData)}"
+            android:text="@{@string/value1(mainFragment.stringData)}"
             android:textSize="14sp"
             app:layout_constraintTop_toBottomOf="@id/fragmentTitle"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@{@string/value2(listFragment.intData)}"
+            android:text="@{@string/value2(mainFragment.intData)}"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@id/textValue1"
             app:layout_constraintTop_toBottomOf="@id/textValue1"

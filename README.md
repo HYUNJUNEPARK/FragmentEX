@@ -113,13 +113,60 @@ cf. addToBackStack() 을 사용하지 않았는데 뒤로가기를 하면 액티
 
 ><a id = "content4">**4. 프래그먼트로 데이터 전달하기**</a></br>
 
-1 Fragment Result API
--FragmentManager 는 프래그먼트 결과의 중앙 저장소 역할을 할 수 있음
--경우에 따라 두 프래그먼트 간에 또는 프래그먼트와 호스트 활동 간에 일회성 값을 전달 경우
-ex) QR 코드를 읽고 이전 프래그먼트로 데이터를 다시 전달하는 프래그먼트
--Fragment 버전 1.3.0 이상에서 각 FragmentManager는 FragmentResultOwner를 구현
--이번 변경으로 구성요소가 서로를 직접 참조하지 않아도 프래그먼트 결과를 설정하고 이러한 결과를 수신 대기하여 구성요소가 서로 통신할 수 있음
+1 Fragment Result API</br>
+-FragmentManager 는 프래그먼트 결과의 중앙 저장소 역할을 할 수 있음</br>
+-경우에 따라 두 프래그먼트 간에 또는 프래그먼트와 호스트 활동 간에 일회성 값을 전달 경우</br>
+ex) QR 코드를 읽고 이전 프래그먼트로 데이터를 다시 전달하는 프래그먼트</br>
 
+2 Build</br>
+-`by viewModels` 와 `setFragmentResult/setFragmentResultListener` 를 사용하기 위해서는 아래와 같은 1.3.0 이상의 의존성을 추가해야하는데,</br>
+`implementation 'androidx.fragment:fragment-ktx:1.3.0'` 이 의존성이 프로젝트의 External Library 인 `androidx.fragment:fragment:1.3.6@arr` 와 충돌함</br>
+-> 프로젝트 dependency 는 코틀린 버전의 라이브러리를 사용하고, 사용자 코드는 자바 버전의 라이브러리를 사용하기 때문에 발생하는 문제</br>
+
+```groovy
+//문제를 해결하기 위해서 아래와 같은 의존성을 추가
+implementation 'androidx.fragment:fragment-ktx:1.3.0'
+
+def lifecycle_version = "2.4.0"
+implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+```
+
+3 데이터 전달</br>
+3.1 프래그먼트 생성 시 데이터 전달하기</br>
+```kotlin
+//MainActivity - send
+val bundle = Bundle()
+bundle.putString(getString(R.string.bundleKey_string), "프래그먼트 생성 시 전달받은 데이터")
+bundle.putInt(getString(R.string.bundleKey_int), 1010101)
+listFragment.arguments = bundle
+
+//ListFragment - get
+arguments?.getString(getString(R.string.bundleKey_string))
+arguments?.getInt(getString(R.string.bundleKey_int))
+```
+
+
+3.2 생성되어 보이는 프래그먼트에 데이터 전달하기 1 - setValue</br>
+```kotlin
+//MainActivity - send
+listFragment.setValue("ListFragment 가 전달받은 데이터")
+
+//ListFragment - get 
+
+```
+
+
+3.3 생성되어 보이는 프래그먼트에 데이터 전달하기 2 - setFragmentResult/setFragmentResultListener</br>
+```kotlin
+
+```
+
+
+3.4 ViewModel</br>
+```kotlin
+
+```
 
 
 <br></br>
@@ -139,3 +186,4 @@ https://developer.android.com/guide/fragments/communicate</br>
 
 Fragment 안의 Fragment 처리(교체, 백스택, Back 버튼 클릭 등) ― parentFragmentManager vs childFragmentManager</br>
 https://ddangeun.tistory.com/m/127</br>
+

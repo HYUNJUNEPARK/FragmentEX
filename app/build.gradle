@@ -46,7 +46,7 @@ dependencies {
 
     // LiveData
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
-    //fragment-ktx for using 'by viewModels'
+    //fragment-ktx for using 'by viewModels' and send/get fragment bundle data
     implementation 'androidx.fragment:fragment-ktx:1.3.0'
 
     /*

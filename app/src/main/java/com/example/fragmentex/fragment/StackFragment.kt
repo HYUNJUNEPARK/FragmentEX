@@ -9,10 +9,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.fragmentex.MainActivity
 import com.example.fragmentex.R
-import com.example.fragmentex.databinding.FragmentDetailBinding
+import com.example.fragmentex.databinding.FragmentStackBinding
 
-class DetailFragment : Fragment() {
-    private lateinit var binding : FragmentDetailBinding
+class StackFragment : Fragment() {
+    private lateinit var binding : FragmentStackBinding
     private var mainActivity : MainActivity? = null
 
     override fun onAttach(context: Context) {
@@ -22,8 +22,9 @@ class DetailFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         try {
-            binding = FragmentDetailBinding.inflate(inflater,container,false)
-            binding.detailFragment = this
+            binding = FragmentStackBinding.inflate(inflater,container,false)
+            binding.stackFragment = this
+
             setFragment()
         } catch (e: Exception) {
             Toast.makeText(requireContext(), "${e.message}", Toast.LENGTH_SHORT).show()
