@@ -16,7 +16,7 @@
         tools:context=".fragment.ListFragment">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/fragmentTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -47,7 +47,7 @@
             android:layout_marginTop="16dp"
             android:text="@{@string/value1(listFragment.stringData)}"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@id/textView"
+            app:layout_constraintTop_toBottomOf="@id/fragmentTitle"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="value1" />
 

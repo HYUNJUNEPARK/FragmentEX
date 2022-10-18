@@ -41,8 +41,8 @@ class ListFragment : Fragment() {
 
     private fun getData() {
         //getData from bundle of arguments
-        stringData = arguments?.getString("data1")
-        intData = arguments?.getInt("data2")
+        stringData = arguments?.getString(getString(R.string.bundleKey_string))
+        intData = arguments?.getInt(getString(R.string.bundleKey_int))
     }
 
     fun onAddToBackStack() {

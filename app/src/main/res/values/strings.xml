@@ -3,5 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="value1">value1 : %s</string>
     <string name="value2">value2 : %d</string>
-
+    <string name="requestKey">req</string>
+    <string name="bundleKey">bundleKey</string>
+    <string name="bundleKey_string">data1</string>
+    <string name="bundleKey_int">data2</string>
 </resources>
