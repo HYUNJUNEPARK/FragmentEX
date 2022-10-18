@@ -51,7 +51,6 @@
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerA"
             app:layout_constraintWidth_percent="0.5"
-            android:background="@color/purple_200"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +60,6 @@
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerB"
             app:layout_constraintWidth_percent="0.5"
-            android:background="@color/purple_500"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"

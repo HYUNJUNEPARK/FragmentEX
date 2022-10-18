@@ -139,9 +139,9 @@ implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 val bundle = Bundle()
 bundle.putString(getString(R.string.bundleKey_string), "프래그먼트 생성 시 전달받은 데이터")
 bundle.putInt(getString(R.string.bundleKey_int), 1010101)
-listFragment.arguments = bundle
+mainFragment.arguments = bundle
 
-//ListFragment - get
+//mainFragment - get
 arguments?.getString(getString(R.string.bundleKey_string))
 arguments?.getInt(getString(R.string.bundleKey_int))
 ```
@@ -149,19 +149,24 @@ arguments?.getInt(getString(R.string.bundleKey_int))
 
 3.2 생성되어 보이는 프래그먼트에 데이터 전달하기 1 - setValue</br>
 ```kotlin
-//MainActivity - send
-listFragment.setValue("ListFragment 가 전달받은 데이터")
-
-//ListFragment - get 
-
+//MainActivity - set
+mainFragment.setValue("ListFragment 가 전달받은 데이터")
 ```
 
 
 3.3 생성되어 보이는 프래그먼트에 데이터 전달하기 2 - setFragmentResult/setFragmentResultListener</br>
 ```kotlin
+//fragmentA
+setFragmentResult(
+    getString(R.string.requestKey),
+    bundleOf(getString(R.string.bundleKey) to "Data From FragmentA")
+)
 
+//fragmentB
+setFragmentResultListener(getString(R.string.requestKey)) { requestKey, bundle ->
+    binding.textView.text = bundle.getString(getString(R.string.bundleKey), "NULL")
+}
 ```
-
 
 3.4 ViewModel</br>
 ```kotlin

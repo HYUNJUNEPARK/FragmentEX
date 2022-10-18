@@ -13,16 +13,20 @@ class FragmentB : Fragment() {
     private lateinit var binding : FragmentBBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        try {
-            binding = FragmentBBinding.inflate(inflater, container, false)
-            binding.fragmentB = this
+        binding = FragmentBBinding.inflate(inflater, container, false)
+        binding.fragmentB = this
+        return binding.root
+    }
 
-            setFragmentResultListener(getString(R.string.requestKey)) { requestKey, bundle ->
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        try {
+            setFragmentResultListener(getString(R.string.requestKey)) { /*requestKey*/_, bundle ->
                 binding.textView.text = bundle.getString(getString(R.string.bundleKey), "NULL")
             }
         } catch (e: Exception) {
             e.printStackTrace()
         }
-        return binding.root
     }
 }
