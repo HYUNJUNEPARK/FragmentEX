@@ -11,16 +11,21 @@ import com.example.fragmentex.R
 import com.example.fragmentex.databinding.FragmentABinding
 
 class FragmentA : Fragment() {
-    private lateinit var binding: FragmentABinding
+    private lateinit var binding : FragmentABinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View {
+        binding = FragmentABinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         try {
-            binding = FragmentABinding.inflate(inflater, container, false)
             binding.fragmentA = this
         } catch (e: Exception) {
             e.printStackTrace()
         }
-        return binding.root
     }
 
     fun onSendBundle() {

@@ -5,6 +5,9 @@
 
     <data>
         <variable
+            name="viewModel"
+            type="com.example.fragmentex.vm.FragmentViewModel" />
+        <variable
             name="fragmentD"
             type="com.example.fragmentex.fragment.FragmentD" />
     </data>
@@ -33,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fragmentTitle" />
