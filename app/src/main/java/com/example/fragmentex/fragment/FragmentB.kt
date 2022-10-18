@@ -17,7 +17,7 @@ class FragmentB : Fragment() {
             binding = FragmentBBinding.inflate(inflater, container, false)
             binding.fragmentB = this
 
-            setFragmentResultListener(getString(R.string.requestKey)) { requestKey, bundle ->
+            setFragmentResultListener(getString(R.string.requestKey)) { /*requestKey*/_, bundle ->
                 binding.textView.text = bundle.getString(getString(R.string.bundleKey), "NULL")
             }
         } catch (e: Exception) {

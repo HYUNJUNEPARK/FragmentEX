@@ -25,7 +25,7 @@ class StackFragment : Fragment() {
             binding = FragmentStackBinding.inflate(inflater,container,false)
             binding.stackFragment = this
 
-            setFragment()
+            setChildFragment()
         } catch (e: Exception) {
             Toast.makeText(requireContext(), "${e.message}", Toast.LENGTH_SHORT).show()
             e.printStackTrace()
@@ -37,7 +37,7 @@ class StackFragment : Fragment() {
         mainActivity?.onBackPressed()
     }
 
-    private fun setFragment() {
+    private fun setChildFragment() {
         parentFragmentManager.beginTransaction().apply {
             add(R.id.fragmentContainerA, FragmentA())
             add(R.id.fragmentContainerB, FragmentB())
