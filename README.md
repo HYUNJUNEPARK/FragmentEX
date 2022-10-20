@@ -105,8 +105,16 @@ fragmentManager.commitNow {
 3 addToBackStack()</br>
 -add() 와 commit() 사이에 addToBackStack()을 추가하면 스마트폰의 뒤로가기 버튼 사용 가능</br>
 cf. addToBackStack() 을 사용하지 않았는데 뒤로가기를 하면 액티비티가 종료됨</br>
--트랙잭션을 하나의 액티비티처럼 백스택에 담아둘 수 있음</br>
--스마트폰의 뒤로가기 버튼으로 트랜잭션 전체를 액티비티처럼 제거할 수 있음</br>
+-프래그먼트를 하나의 액티비티처럼 백스택에 담아둘 수 있음</br>
+-스마트폰의 뒤로가기 버튼으로 프래그먼트를 액티비티처럼 제거할 수 있음</br>
+
+```kotlin
+mainActivity?.supportFragmentManager!!.beginTransaction().apply {
+    add(R.id.fragmentContainerView, StackFragment())
+    addToBackStack("detail")
+    commit()
+}
+```
 
 <br></br>
 <br></br>
@@ -119,17 +127,16 @@ cf. addToBackStack() 을 사용하지 않았는데 뒤로가기를 하면 액티
 ex) QR 코드를 읽고 이전 프래그먼트로 데이터를 다시 전달하는 프래그먼트</br>
 
 2 Build</br>
--`by viewModels` 와 `setFragmentResult/setFragmentResultListener` 를 사용하기 위해서는 아래와 같은 1.3.0 이상의 의존성을 추가해야하는데,</br>
-`implementation 'androidx.fragment:fragment-ktx:1.3.0'` 이 의존성이 프로젝트의 External Library 인 `androidx.fragment:fragment:1.3.6@arr` 와 충돌함</br>
--> 프로젝트 dependency 는 코틀린 버전의 라이브러리를 사용하고, 사용자 코드는 자바 버전의 라이브러리를 사용하기 때문에 발생하는 문제</br>
-
+-`by viewModels` 와 `setFragmentResult/setFragmentResultListener` 를 사용하기 위해서는 최소 fragment-ktx 1.3.0 버전 이상의 의존성을 추가해야하는데,</br>
+-> 프로젝트 dependency 는 코틀린 버전의 라이브러리를 사용하고, 사용자 코드는 자바 버전의 라이브러리를 사용하기 때문에 충돌이 발생</br>
+-문제를 해결하기 위해서 아래와 같은 의존성 추가</br>
 ```groovy
-//문제를 해결하기 위해서 아래와 같은 의존성을 추가
+//Solution1) 최신 fragment-ktx 의존성을 추가
+implementation 'androidx.fragment:fragment-ktx:1.5.3'
+ 
+//Solution2) fragment-ktx 1.3.0 은 그대로 사용하고, lifecycle-viewmodel-ktx 를 명시
 implementation 'androidx.fragment:fragment-ktx:1.3.0'
-
-def lifecycle_version = "2.4.0"
-implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
-implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
 ```
 
 3 데이터 전달</br>
@@ -196,4 +203,13 @@ https://developer.android.com/guide/fragments/communicate</br>
 
 Fragment 안의 Fragment 처리(교체, 백스택, Back 버튼 클릭 등) ― parentFragmentManager vs childFragmentManager</br>
 https://ddangeun.tistory.com/m/127</br>
+
+parentFragmentManager vs childFragmentManager</br>
+https://selfish-developer.com/entry/FragmentManagers-Android</br>
+
+Problem duplicate class androidx.lifecycle.viewmodel found in modules</br>
+https://stackoverflow.com/questions/69817925/problem-duplicate-class-androidx-lifecycle-viewmodel-found-in-modules</br>
+
+
+
 
